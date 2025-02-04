@@ -1,0 +1,36 @@
+<!-- src/app/workout-list/workout-list.component.html -->
+ <br>
+<div class="form-row">
+    <mat-form-field>
+        <input matInput placeholder="Search by Name" [(ngModel)]="searchName" (input)="applyFilters()">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-select placeholder="Filter by Workout Type" [(ngModel)]="selectedWorkoutType" (selectionChange)="applyFilters()">
+          <mat-option value="">All</mat-option>
+          <mat-option *ngFor="let type of workoutTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+  
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef>User Name</mat-header-cell>
+      <mat-cell *matCellDef="let workout">{{ workout.userName }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="workoutType">
+      <mat-header-cell *matHeaderCellDef>Workout Type</mat-header-cell>
+      <mat-cell *matCellDef="let workout">{{ workout.workoutType }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="minutes">
+      <mat-header-cell *matHeaderCellDef>Minutes</mat-header-cell>
+      <mat-cell *matCellDef="let workout">{{ workout.minutes }}</mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

@@ -1,0 +1,33 @@
+/* src/app/add-workout/add-workout.component.css */
+.full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
+  .form-row {
+    display: block;
+    justify-content: space-between;
+  }
+
+  .mat-card {
+    padding: 16px;
+    margin-bottom: 16px;
+    margin-left: 40px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
